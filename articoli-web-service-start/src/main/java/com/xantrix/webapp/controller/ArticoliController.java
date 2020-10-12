@@ -36,6 +36,12 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponses;
 import io.swagger.annotations.ApiResponse;
 
+/**
+ * 
+ * @author umberto
+ *
+ */
+
 @RestController
 @RequestMapping("/api/articoli")
 @Api(value="alphashop", tags="Controller Operazioni di gestione dati articoli")
