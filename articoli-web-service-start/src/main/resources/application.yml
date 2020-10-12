@@ -1,0 +1,42 @@
+# ==============================================================
+# = Articoli Web Service - Versione Base
+# ==============================================================
+
+server:
+  port: 5051
+
+spring:
+  application:
+    name: ProductsWebService
+# ==============================================================
+# = DBMS PostgreSQL Parameters
+# ==============================================================
+  datasource:
+    initialization-mode: always
+    password: 123_Stella
+    platform: postgres
+    url: jdbc:postgresql://localhost:5433/Shop
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: true
+ 
+ # ==============================================================
+# = Accesso al servizio gestuser
+# ==============================================================   
+
+gestuser:
+  password: password
+  srvUrl: http://localhost:8019/api/utenti/cerca/userid/
+  userId: ReadUser
+    
+
+  
+
