@@ -3,7 +3,17 @@
 # ==============================================================
 
 server:
-  port: 5051
+  port: 5443
+# ==============================================================
+# = Impostazioni SSL
+# ==============================================================
+
+  ssl:
+    enabled: true
+    key-store-type: PKCS12
+    key-store: classpath:ssl-server.jks
+    key-store-password: password
+
 
 spring:
   application:
@@ -48,6 +58,7 @@ sicurezza:
     prefix: Bearer 
     expiration: 86400
     secret: 123_Stella
+    
 
   
 
