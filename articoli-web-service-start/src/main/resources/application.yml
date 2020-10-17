@@ -1,24 +1,23 @@
 # ==============================================================
-# = Articoli Web Service - Versione Base
+# = Articoli Web Service - Versione Autenticazione JWT
 # ==============================================================
 
 server:
-  port: 5443
+  port: 5051
+  
 # ==============================================================
 # = Impostazioni SSL
 # ==============================================================
 
-  ssl:
-    enabled: true
-    key-store-type: PKCS12
-    key-store: classpath:ssl-server.jks
-    key-store-password: password
-
+#  ssl:
+#    enabled: true
+#    key-store-type: PKCS12
+#    key-store: classpath:ssl-server.jks
+#    key-store-password: password
 
 spring:
   application:
     name: ProductsWebService
-    
 # ==============================================================
 # = DBMS PostgreSQL Parameters
 # ==============================================================
@@ -38,16 +37,39 @@ spring:
           lob:
             non_contextual_creation: true
     show-sql: true
- 
-# ==============================================================
-# = Accesso al servizio gestuser
-# ==============================================================   
 
+# ==============================================================
+# = Proprietà Livello Log
+# = Default ERROR, WARN e INFO 
+# = Levels: TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF
+# ============================================================== 
+
+logging:
+  file:
+    name: ArtSrv.log
+    max-size: 1MB
+    #path: "/logs"
+  pattern:
+    file: "%d{ dd-MM-yyyy } [%thread] %-5level %logger{36} - %msg%n"
+    #console: "%d{dd-MM-yyyy HH:mm:ss} - %msg%n"
+    
+  # Livello del Log generale
+  level:
+   root: WARN
+  # Livello di log specifico
+   org.springframework.security: DEBUG
+   org.hibernate: INFO
+   org.springframework.web: INFO
+   com.xantrix.webapp.controller: INFO
+    
+# ==============================================================
+# = Proprietà Servizio gestUser
+# ==============================================================          
 gestuser:
   password: password
   srvUrl: http://localhost:8019/api/utenti/cerca/userid/
   userId: ReadUser
-    
+  
 # ==============================================================
 # = Parametri Sicurezza JWT 
 # ==============================================================
