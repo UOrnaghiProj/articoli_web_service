@@ -8,6 +8,7 @@ server:
 spring:
   application:
     name: ProductsWebService
+    
 # ==============================================================
 # = DBMS PostgreSQL Parameters
 # ==============================================================
@@ -28,7 +29,7 @@ spring:
             non_contextual_creation: true
     show-sql: true
  
- # ==============================================================
+# ==============================================================
 # = Accesso al servizio gestuser
 # ==============================================================   
 
@@ -37,6 +38,16 @@ gestuser:
   srvUrl: http://localhost:8019/api/utenti/cerca/userid/
   userId: ReadUser
     
+# ==============================================================
+# = Parametri Sicurezza JWT 
+# ==============================================================
+sicurezza:
+    uri: /auth
+    refresh: /refresh
+    header: Authorization
+    prefix: Bearer 
+    expiration: 86400
+    secret: 123_Stella
 
   
 
