@@ -39,6 +39,28 @@ spring:
     show-sql: true
 
 # ==============================================================
+# = ACTUATOR PARAMETERS
+# ==============================================================
+management:
+  endpoint:
+    health:
+      show-details: WHEN_AUTHORIZED
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+        
+# ==============================================================
+# = ACTUATOR INFO
+# ==============================================================
+info:
+  assistenza:
+    nome: "Umberto Ornaghi"
+    mail: "umberto.ornaghi@gmail.com"
+  nome:
+    nome-app: "Articoli web service con JWT"
+
+# ==============================================================
 # = Proprietà Livello Log
 # = Default ERROR, WARN e INFO 
 # = Levels: TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF
