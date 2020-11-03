@@ -37,6 +37,31 @@ spring:
           lob:
             non_contextual_creation: true
     show-sql: true
+    
+# ==============================================================
+# = FEIGN PARAMETERS
+# ==============================================================
+feign:
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+  httpclient:
+    connection-timeout: 3000
+  client:
+    config:
+      default:
+        connectTimeout: 300000
+        readTimeout: 300000
+
+# ==============================================================
+# = RIBBON
+# ==============================================================
+PriceArtWebService:
+  ribbon:
+   listOfServers: http://localhost:5071,http://localhost:5072,http://localhost:5073
+        
 
 # ==============================================================
 # = ACTUATOR PARAMETERS
