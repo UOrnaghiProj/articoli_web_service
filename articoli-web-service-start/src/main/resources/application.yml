@@ -3,7 +3,7 @@
 # ==============================================================
 
 server:
-  port: 5051
+  port: 505${seq}
   
 # ==============================================================
 # = Impostazioni SSL
@@ -18,6 +18,10 @@ server:
 spring:
   application:
     name: ProductsWebService
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
 # ==============================================================
 # = DBMS PostgreSQL Parameters
 # ==============================================================
@@ -56,11 +60,22 @@ feign:
         readTimeout: 300000
 
 # ==============================================================
+# = EUREKA client
+# ==============================================================
+eureka:
+   client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+     defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}  
+
+
+# ==============================================================
 # = RIBBON
 # ==============================================================
-PriceArtWebService:
-  ribbon:
-   listOfServers: http://localhost:5071,http://localhost:5072,http://localhost:5073
+#PriceArtWebService:
+#  ribbon:
+#   listOfServers: http://localhost:5071,http://localhost:5072,http://localhost:5073
         
 
 # ==============================================================

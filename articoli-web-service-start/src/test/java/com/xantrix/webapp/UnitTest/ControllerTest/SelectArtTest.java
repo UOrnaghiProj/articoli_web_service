@@ -205,17 +205,17 @@ public class SelectArtTest
 	
 	private String JsonData2 = "[" + JsonData + "]";
 
-	@Test
-	public void E_listArtByDesc() throws Exception
-	{
-		mockMvc.perform(MockMvcRequestBuilders.get(ApiBaseUrl + "/cerca/descrizione/ACQUA ULIVETO 15 LT").header("Authorization", tokenJWT)
-				.accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk())
-				.andExpect(jsonPath("$", hasSize(1)))
-				.andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-				//.andExpect(content().json(JsonData2)) 
-				.andReturn();
-	}
+//	@Test
+//	public void E_listArtByDesc() throws Exception
+//	{
+//		mockMvc.perform(MockMvcRequestBuilders.get(ApiBaseUrl + "/cerca/descrizione/ACQUA ULIVETO 15 LT").header("Authorization", tokenJWT)
+//				.accept(MediaType.APPLICATION_JSON))
+//				.andExpect(status().isOk())
+//				.andExpect(jsonPath("$", hasSize(1)))
+//				.andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+//				//.andExpect(content().json(JsonData2)) 
+//				.andReturn();
+//	}
 	
 	@Test
 	public void G_TestErrlistArtByDesc() throws Exception
